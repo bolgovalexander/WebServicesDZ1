@@ -3,21 +3,24 @@
     ViewData["Title"] = "Домашняя работа №1";
 }
 
-<h3>Выберите файл для загрузки</h3>
-<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="FileUpload">
-    <div class="form-group">
-        <div class="col-md-10">
-            <p>Загрузите один или несколько файлов</p>
-            <input type="file" name="files" multiple />
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="submit" value="Загрузить" />
-        </div>
-    </div>
-</form>
 <div>
+    <h3>Выберите файл для загрузки</h3>
+    <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="FileUpload">
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Загрузите один или несколько файлов</p>
+                <input type="file" name="files" multiple />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Загрузить" />
+            </div>
+        </div>
+    </form>
+</div>
+<div>
+    <h3>Ваши файлы</h3>
     <table class="table">
         <thead>
             <tr>
@@ -31,7 +34,7 @@
                 <tr>
                     <td>@item.Name</td>
                     <td>
-                        <a href="javascript:;" class="btn btn-sm btn-success">Скачать</a>
+                        <a asp-action="GetVirtualFile" asp-controller="Home" asp-route-nameFile="@item.Name" class="btn btn-sm btn-success">Скачать</a>
                         <a href="javascript:;" class="btn btn-sm btn-danger">Удалить</a>
                     </td>
                 </tr>

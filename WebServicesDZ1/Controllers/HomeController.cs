@@ -58,5 +58,10 @@ namespace WebServicesDZ1.Controllers
 
             return RedirectToAction("Index");
         }
+        public VirtualFileResult GetVirtualFile(string nameFile)
+        {
+            var filepath = Path.Combine("~/Upload", nameFile);
+            return File(filepath, "text/plain", nameFile);
+        }
     }
 }
