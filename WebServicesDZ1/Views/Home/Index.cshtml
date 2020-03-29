@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-10">
-                <input type="submit" value="Загрузить" />
+                <button type="submit" class="btn btn-sm btn-primary">Загрузить</button>
             </div>
         </div>
     </form>
@@ -34,8 +34,8 @@
                 <tr>
                     <td>@item.Name</td>
                     <td>
-                        <a asp-action="GetVirtualFile" asp-controller="Home" asp-route-nameFile="@item.Name" class="btn btn-sm btn-success">Скачать</a>
-                        <a href="javascript:;" class="btn btn-sm btn-danger">Удалить</a>
+                        <a asp-action="DownloadFile" asp-controller="Home" asp-route-nameFile="@item.Name" class="btn btn-sm btn-success">Скачать</a>
+                        <a asp-action="DeleteFile" asp-controller="Home" asp-route-nameFile="@item.Name" class="btn btn-sm btn-danger">Удалить</a>
                     </td>
                 </tr>
             }

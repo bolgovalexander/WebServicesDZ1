@@ -58,10 +58,23 @@ namespace WebServicesDZ1.Controllers
 
             return RedirectToAction("Index");
         }
-        public VirtualFileResult GetVirtualFile(string nameFile)
+
+        public VirtualFileResult DownloadFile(string nameFile)
         {
             var filepath = Path.Combine("~/Upload", nameFile);
             return File(filepath, "text/plain", nameFile);
+        }
+
+        public IActionResult DeleteFile(string nameFile)
+        {
+            nameFile = Path.Combine(_appEnvironment.WebRootPath, "Upload",nameFile);
+            FileInfo fi = new FileInfo(nameFile);
+            if (fi != null)
+            {
+                System.IO.File.Delete(nameFile);
+                fi.Delete();
+            }
+            return RedirectToAction("Index");
         }
     }
 }
