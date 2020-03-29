@@ -1,4 +1,5 @@
-﻿@{
+﻿@model WebServicesDZ1.Models.FilesClass
+@{
     ViewData["Title"] = "Домашняя работа №1";
 }
 
@@ -16,3 +17,25 @@
         </div>
     </div>
 </form>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название файла</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.FileInfos)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>
+                        <a href="javascript:;" class="btn btn-sm btn-success">Скачать</a>
+                        <a href="javascript:;" class="btn btn-sm btn-danger">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

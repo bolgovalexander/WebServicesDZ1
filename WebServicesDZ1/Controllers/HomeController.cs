@@ -25,7 +25,12 @@ namespace WebServicesDZ1.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            FilesClass fs = new FilesClass();
+            var displayFile = Path.Combine(_appEnvironment.WebRootPath, "Upload");
+            DirectoryInfo di = new DirectoryInfo(displayFile);
+            FileInfo[] fileInfos = di.GetFiles();
+            fs.FileInfos = fileInfos;
+            return View(fs);
         }
 
         public IActionResult Privacy()
